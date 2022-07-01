@@ -1,4 +1,4 @@
-# Änderung merge Konflikt mit Änderung von Dirk
+# Dirk hat hier was Tolles gemacht
 
 # Mit React so richtig loslegen
 
