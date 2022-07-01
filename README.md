@@ -1,4 +1,4 @@
-# Mit React loslegen
+# Mit React so richtig loslegen
 
 # Getting Started with Create React App
 
