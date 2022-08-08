@@ -1,9 +1,29 @@
 import React from "react";
 import { connect } from "react-redux";
 import Todo from "../Todo";
+import styled from 'styled-components'
+
+const CustomTable = styled.table`
+  &&& {
+    table,th,td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th,td,tr {
+      padding: 5px;
+    }
+    th {
+      text-align: left;
+    }
+    table {
+      width: 100%;
+    }
+  }
+`;
 
 const TodoList = ({ todos }) => (
-  <ul>
+  <CustomTable>
+  <tr>
     {
     todos.allIds && todos.allIds.length
       ? todos.allIds.map((id) => todos.byIds[id]).map((todo, index) => {
@@ -11,7 +31,8 @@ const TodoList = ({ todos }) => (
         })
       : "No todos, yay!"
     }
-  </ul>
+    </tr>
+  </CustomTable>
 );
 
 const mapStateToProps = state => {

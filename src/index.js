@@ -15,8 +15,8 @@ ReactDOM.render(
         <Routes>
           <Route path="/" element={ <App />}>
             <Route path="/" element={ <Dashboard />} />
-            <Route path="/metrics" element={ <Metrics />} />
-            <Route path="/visualizations" element={ <Visualizations />} />
+            <Route path="/Kennzahlen" element={ <Metrics />} />
+            <Route path="/Visualisierungen" element={ <Visualizations />} />
           </Route>
         </Routes>
       </BrowserRouter>
