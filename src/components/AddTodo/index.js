@@ -30,7 +30,8 @@ class AddTodo extends React.Component {
   render() {
     return (
       <div>
-        <input
+        <label for="todoContent">Todo Content: </label>
+        <input name="todoContent"
           onChange={e => this.updateInput(e.target.value)}
           value={this.state.input}
         />

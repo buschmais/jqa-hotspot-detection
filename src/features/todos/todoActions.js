@@ -1,5 +1,6 @@
 const ADD_TODO = "ADD_TODO";
 const TOGGLE_TODO = "TOGGLE_TODO";
+const REMOVE_TODO = "REMOVE_TODO";
 
 let nextTodoId = 0
 
@@ -16,4 +17,9 @@ export const toggleTodo = id => ({
   payload: { id }
 });
 
-export { ADD_TODO, TOGGLE_TODO };
+export const removeTodo = id => ({
+  type: REMOVE_TODO,
+  payload: { id }
+});
+
+export { ADD_TODO, TOGGLE_TODO, REMOVE_TODO };

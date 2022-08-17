@@ -23,7 +23,7 @@ const CustomTable = styled.table`
 
 const TodoList = ({ todos }) => (
   <CustomTable>
-  <tr>
+
     {
     todos.allIds && todos.allIds.length
       ? todos.allIds.map((id) => todos.byIds[id]).map((todo, index) => {
@@ -31,7 +31,6 @@ const TodoList = ({ todos }) => (
         })
       : "No todos, yay!"
     }
-    </tr>
   </CustomTable>
 );
 
