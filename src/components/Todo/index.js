@@ -4,7 +4,7 @@ import { removeTodo, toggleTodo } from "../../features/todos/todoActions";
 import styled from 'styled-components';
 
 
-const Todo = ({ todo, toggleTodo, removeTodo }) => {
+const Todo = ({ todo, toggleTodo, removeTodo }) => (
   <tr className="todo-item" >
     <td onClick={() => toggleTodo(todo.id)}>
         {todo && todo.completed ? "👌" : "👋"}{" "}
@@ -12,12 +12,12 @@ const Todo = ({ todo, toggleTodo, removeTodo }) => {
     <td>
           {todo.content}
     </td>
-    //<td>
-        //<button className="destroy" onClick={() => removeTodo(todo.id)}>
-        //</button>
-    //</td>
+    <td>
+      <button className="destroy" onClick={() => removeTodo(todo.id)}>
+      </button>
+    </td>
   </tr>
-};
+)
 
 export default connect(
   null,

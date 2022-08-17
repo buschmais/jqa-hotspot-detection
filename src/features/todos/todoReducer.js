@@ -36,7 +36,14 @@ const todoReducer = function(state = initialState, action) {
       };
     }
     case REMOVE_TODO: {
-          return state((todo) => todo.id !== action.payload)
+      const { id } = action.payload;
+      const allIds = state.allIds.filter((todoId) => todoId !== id);
+      const { [id]: removedTodo, ...byIds } = state.byIds;
+      return {
+        ...state,
+        allIds: allIds,
+        byIds: byIds
+      }
     }
     default:
       return state;
