@@ -15,25 +15,37 @@ const Button = styled.button`
 class AddTodo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { input: "" };
+    this.state = { mName: "" };
+    this.state = { testinput: "" };
+    console.log(this.props)
   }
 
-  updateInput = input => {
-    this.setState({ input });
+  updatemName = mName => {
+    this.setState({ mName });
   };
 
+  updatetestinput = testinput => {
+      this.setState({ testinput });
+    };
+
   handleAddTodo = () => {
-    this.props.addTodo(this.state.input);
-    this.setState({ input: "" });
+    this.props.addTodo(this.state.mName, this.state.testinput);
+
+    this.setState({ mName: "" });
+    this.setState({ testinput: "" });
   };
 
   render() {
     return (
       <div>
-        <label htmlFor="todoContent">Todo Content: </label>
-        <input id="todoContent"
-          onChange={e => this.updateInput(e.target.value)}
-          value={this.state.input}
+        <label htmlFor="mName">Todo Content: </label>
+        <input id="mName"
+          onChange={e => this.updatemName(e.target.value)}
+          value={this.state.mName}
+        />
+        <input id="testinput"
+          onChange={e => this.updatetestinput(e.target.value)}
+          value={this.state.testinput}
         />
         <Button className="add-todo" onClick={this.handleAddTodo}>
           Add an Todo

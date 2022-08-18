@@ -4,11 +4,12 @@ const REMOVE_TODO = "REMOVE_TODO";
 
 let nextTodoId = 0
 
-export const addTodo = content => ({
+export const addTodo = (mName, testinput) => ({
   type: ADD_TODO,
   payload: {
     id: ++nextTodoId,
-    content
+    mName,
+    testinput
   }
 });
 

@@ -8,7 +8,7 @@ const initialState = {
 const todoReducer = function(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO: {
-      const { id, content } = action.payload;
+      const { id, mName, testinput } = action.payload;
       return {
         ...state,
         allIds: [...state.allIds, id],
@@ -16,7 +16,8 @@ const todoReducer = function(state = initialState, action) {
           ...state.byIds,
           [id]: {
             id,
-            content,
+            mName,
+            testinput,
             completed: false
           }
         }
