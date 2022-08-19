@@ -26,18 +26,17 @@ class AddTodo extends React.Component {
   updateMTitle = MTitle => {
     this.setState({ MTitle });
   };
-
   updateMDescr = MDescr => {
-      this.setState({ MDescr });
+    this.setState({ MDescr });
   };
   updateMQuery = MQuery => {
-        this.setState({ MQuery });
+    this.setState({ MQuery });
   };
   updateMInput = MInput => {
-        this.setState({ MInput });
+    this.setState({ MInput });
   };
   updateMOutput = MOutput => {
-          this.setState({ MOutput });
+    this.setState({ MOutput });
   };
 
   handleAddTodo = () => {
