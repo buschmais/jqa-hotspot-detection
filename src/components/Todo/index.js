@@ -12,10 +12,19 @@ const Todo = ({ todo, toggleTodo, removeTodo }) => (
         {todo && todo.completed ? "👌" : "👋"}{" "}
     </td>
     <td>
-          {todo.mName}
+          {todo.MTitle}
     </td>
     <td>
-          {todo.testinput}
+          {todo.MDescr}
+    </td>
+    <td>
+          {todo.MQuery}
+    </td>
+    <td>
+          {todo.MInput}
+    </td>
+    <td>
+          {todo.MOutput}
     </td>
     <td>
       <button className="destroy" onClick={() => removeTodo(todo.id)}>

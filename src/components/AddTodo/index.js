@@ -15,41 +15,79 @@ const Button = styled.button`
 class AddTodo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { mName: "" };
-    this.state = { testinput: "" };
+    this.state = { MTitle: "" };
+    this.state = { MDescr: "" };
+    this.state = { MQuery: "" };
+    this.state = { MInput: "" };
+    this.state = { MOutput: "" };
     console.log(this.props)
   }
 
-  updatemName = mName => {
-    this.setState({ mName });
+  updateMTitle = MTitle => {
+    this.setState({ MTitle });
   };
 
-  updatetestinput = testinput => {
-      this.setState({ testinput });
-    };
+  updateMDescr = MDescr => {
+      this.setState({ MDescr });
+  };
+  updateMQuery = MQuery => {
+        this.setState({ MQuery });
+  };
+  updateMInput = MInput => {
+        this.setState({ MInput });
+  };
+  updateMOutput = MOutput => {
+          this.setState({ MOutput });
+  };
 
   handleAddTodo = () => {
-    this.props.addTodo(this.state.mName, this.state.testinput);
+    this.props.addTodo(this.state.MTitle, this.state.MDescr, this.state.MQuery, this.state.MInput, this.state.MOutput);
 
-    this.setState({ mName: "" });
-    this.setState({ testinput: "" });
+    this.setState({ MTitle: "" });
+    this.setState({ MDescr: "" });
+    this.setState({ MQuery: "" });
+    this.setState({ MInput: "" });
+    this.setState({ MOutput: "" });
   };
 
   render() {
     return (
       <div>
-        <label htmlFor="mName">Todo Content: </label>
-        <input id="mName"
-          onChange={e => this.updatemName(e.target.value)}
-          value={this.state.mName}
+        <label htmlFor="MTitle">Titel: </label>
+        <input id="MTitle"
+          onChange={e => this.updateMTitle(e.target.value)}
+          value={this.state.MTitle}
         />
-        <input id="testinput"
-          onChange={e => this.updatetestinput(e.target.value)}
-          value={this.state.testinput}
+        <br />
+        <label htmlFor="MDescr">Beschreibung: </label>
+        <input id="MDescr"
+          onChange={e => this.updateMDescr(e.target.value)}
+          value={this.state.MDescr}
+        />
+        <br />
+        <label htmlFor="MQuery">Abfrage: </label>
+        <input id="MQuery"
+          onChange={e => this.updateMQuery(e.target.value)}
+          value={this.state.MQuery}
+        />
+        <br />
+        <label htmlFor="MInput">Input-Kategorie: </label>
+        <input id="MInput"
+          onChange={e => this.updateMInput(e.target.value)}
+          value={this.state.MInput}
+        />
+        <br />
+        <label htmlFor="MOutput">Output-Kategorie: </label>
+        <input id="MOutput"
+          onChange={e => this.updateMOutput(e.target.value)}
+          value={this.state.MOutput}
         />
         <Button className="add-todo" onClick={this.handleAddTodo}>
-          Add an Todo
+          Kennzahl hinzufügen
         </Button>
+        <br />
+        <br />
+        <br />
       </div>
     );
   }

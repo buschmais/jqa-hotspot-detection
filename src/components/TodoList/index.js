@@ -23,13 +23,34 @@ const CustomTable = styled.table`
 
 const TodoList = ({ todos }) => (
   <CustomTable>
+    <thead>
+        <td>
+            Status
+        </td>
+        <td>
+            Titel
+        </td>
+        <td>
+            Beschreibung
+        </td>
+        <td>
+            Abfrage
+        </td>
+        <td>
+            Input-Kategorie
+        </td>
+        <td>
+            Output-Kategorie
+        </td>
+
+    </thead>
     <tbody>
     {
     todos.allIds && todos.allIds.length
       ? todos.allIds.map((id) => todos.byIds[id]).map((todo, index) => {
           return <Todo key={`todo-${todo.id}`} todo={todo} />;
         })
-      : "No todos, yay!"
+      : "Noch keine Kennzahlen vorhanden."
     }
     </tbody>
   </CustomTable>

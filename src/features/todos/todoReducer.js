@@ -8,7 +8,7 @@ const initialState = {
 const todoReducer = function(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO: {
-      const { id, mName, testinput } = action.payload;
+      const { id, MTitle, MDescr, MQuery, MInput, MOutput } = action.payload;
       return {
         ...state,
         allIds: [...state.allIds, id],
@@ -16,8 +16,11 @@ const todoReducer = function(state = initialState, action) {
           ...state.byIds,
           [id]: {
             id,
-            mName,
-            testinput,
+            MTitle,
+            MDescr,
+            MQuery,
+            MInput,
+            MOutput,
             completed: false
           }
         }
