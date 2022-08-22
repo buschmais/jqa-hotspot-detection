@@ -1,9 +1,9 @@
 import { createStore } from "redux";
 import { combineReducers } from "redux";
 import { counterReducer } from "./features/counter/counterReducer";
-import { todoReducer } from "./features/todos/todoReducer";
+import { metricsReducer } from "./features/metrics/metricsReducer";
 
-const rootReducer = combineReducers({counter: counterReducer, todo: todoReducer})
+const rootReducer = combineReducers({counter: counterReducer, item: metricsReducer})
 const store = createStore(rootReducer)
 
 export default store
