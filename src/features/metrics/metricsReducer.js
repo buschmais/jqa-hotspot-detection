@@ -1,14 +1,14 @@
-import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from "./todoActions";
+import { ADD_METRICS, TOGGLE_METRICS, REMOVE_METRICS } from "./metricsActions";
 
 const initialState = {
   allIds: [],
   byIds: {}
 };
 
-const todoReducer = function(state = initialState, action) {
+const metricsReducer = function(state = initialState, action) {
   switch (action.type) {
-    case ADD_TODO: {
-      const { id, MTitle, MDescr, MQuery, MInput, MOutput } = action.payload;
+    case ADD_METRICS: {
+      const { id, Title, Description, Query, InputCategory, OutputCategory } = action.payload;
       return {
         ...state,
         allIds: [...state.allIds, id],
@@ -16,17 +16,17 @@ const todoReducer = function(state = initialState, action) {
           ...state.byIds,
           [id]: {
             id,
-            MTitle,
-            MDescr,
-            MQuery,
-            MInput,
-            MOutput,
+            Title,
+            Description,
+            Query,
+            InputCategory,
+            OutputCategory,
             completed: false
           }
         }
       };
     };
-    case TOGGLE_TODO: {
+    case TOGGLE_METRICS: {
       const { id } = action.payload;
       return {
         ...state,
@@ -39,10 +39,10 @@ const todoReducer = function(state = initialState, action) {
         }
       };
     }
-    case REMOVE_TODO: {
+    case REMOVE_METRICS: {
       const { id } = action.payload;
-      const allIds = state.allIds.filter((todoId) => todoId !== id);
-      const { [id]: removedTodo, ...byIds } = state.byIds;
+      const allIds = state.allIds.filter((metricsId) => metricsId !== id);
+      const { [id]: removeMetrics, ...byIds } = state.byIds;
       return {
         ...state,
         allIds: allIds,
@@ -54,4 +54,4 @@ const todoReducer = function(state = initialState, action) {
   }
 }
 
-export { todoReducer };
+export { metricsReducer };

@@ -1,6 +1,6 @@
 import Counter from './components/Counter'
-import TodoList from './components/TodoList'
-import AddTodo from './components/AddTodo'
+import MetricsList from './components/MetricsList'
+import AddMetrics from './components/AddMetrics'
 import styled from 'styled-components'
 
 const CustomTable = styled.table`
@@ -27,8 +27,8 @@ export default function Metrics() {
 
     <div style={{ padding: "1rem 0" }}>
       <h2>Kennzahlen</h2>
-      <AddTodo />
-      <TodoList />
+      <AddMetrics />
+      <MetricsList />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import Todo from "../Todo";
+import MetricsListItem from "../MetricsListItem";
 import styled from 'styled-components'
 
 const CustomTable = styled.table`
@@ -21,7 +21,7 @@ const CustomTable = styled.table`
   }
 `;
 
-const TodoList = ({ todos }) => (
+const MetricsList = ({ metrics }) => (
   <CustomTable>
     <thead>
         <td>
@@ -46,9 +46,9 @@ const TodoList = ({ todos }) => (
     </thead>
     <tbody>
     {
-    todos.allIds && todos.allIds.length
-      ? todos.allIds.map((id) => todos.byIds[id]).map((todo, index) => {
-          return <Todo key={`todo-${todo.id}`} todo={todo} />;
+    metrics.allIds && metrics.allIds.length
+      ? metrics.allIds.map((id) => metrics.byIds[id]).map((item, index) => {
+          return <MetricsListItem key={`item-${item.id}`} item={item} />;
         })
       : "Noch keine Kennzahlen vorhanden."
     }
@@ -58,7 +58,7 @@ const TodoList = ({ todos }) => (
 
 const mapStateToProps = state => {
   console.log(state)
-  return { todos: state.todo };
+  return { metrics: state.item };
 };
 
-export default connect(mapStateToProps)(TodoList);
+export default connect(mapStateToProps)(MetricsList);
