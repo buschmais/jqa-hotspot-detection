@@ -57,7 +57,6 @@ const MetricsList = ({ metrics }) => (
 );
 
 const mapStateToProps = state => {
-  console.log(state)
   return { metrics: state.item };
 };
 

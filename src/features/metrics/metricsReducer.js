@@ -2,7 +2,8 @@ import { ADD_METRICS, TOGGLE_METRICS, REMOVE_METRICS } from "./metricsActions";
 
 const initialState = {
   allIds: [],
-  byIds: {}
+  byIds: {},
+  current: null
 };
 
 const metricsReducer = function(state = initialState, action) {
