@@ -1,17 +1,18 @@
 import React from "react";
 import { useReadCypher } from 'use-neo4j'
 
-export default function MetricResultTable() {
+// Basiert auf https://github.com/adam-cowley/use-neo4j
+export default function MetricQuery({ Visualization }) {
     const query = `
       MATCH
         (:Artifact:Main)-[:CONTAINS]->(package:Package)-[:CONTAINS]->(type:Type)
-      // WHERE
-      //  package.fqn = $package
+//      WHERE
+//        package.fqn = $package
       RETURN
         package.fqn as Package, count(type) as Types`
 
     const params = {
-      // package: 'app.coronawarn.server'
+//       package: 'app.coronawarn.server.common.persistence.domain.config'
     }
 
     const { loading, error, records } = useReadCypher(query, params);
@@ -19,7 +20,7 @@ export default function MetricResultTable() {
     if ( loading ) return (<div>Loading...</div>)
     if ( error ) return (<div>{ error.message }</div>)
 
-    const metrics = records?.map(row => {
+    const metricResult = records?.map(row => {
       const category = row.get('Package')
       const value = row.get('Types').toNumber()
       return {
@@ -28,12 +29,10 @@ export default function MetricResultTable() {
       }
     });
 
-    return (
-      <div>
-        { metrics?.map(m => {
-            return (<div>{ m.category } {m.value}</div>)
-          })
-        }
-      </div>
+   if (! metricResult) return <div> No result yet. </div>
+   return (
+     <div>
+       <Visualization metricResult={metricResult} />
+     </div>
     )
 }

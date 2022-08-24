@@ -1,6 +1,8 @@
 import Counter from './components/Counter'
 import MetricsList from './components/MetricsList'
 import AddMetrics from './components/AddMetrics'
+import MetricQuery from './components/MetricQuery'
+import MetricTable from './components/MetricTable'
 import styled from 'styled-components'
 
 const CustomTable = styled.table`
@@ -24,11 +26,11 @@ const CustomTable = styled.table`
 export default function Metrics() {
 
   return (
-
     <div style={{ padding: "1rem 0" }}>
       <h2>Kennzahlen</h2>
       <AddMetrics />
       <MetricsList />
+      <MetricQuery Visualization={ MetricTable } />
     </div>
   );
 }
