@@ -29,7 +29,12 @@ export default function MetricQuery({ Visualization }) {
       }
     });
 
-   if (! metricResult) return <div> No result yet. </div>
+   if (!metricResult) return (
+     <div>
+       No result yet.
+     </div>
+   )
+
    return (
      <div>
        <Visualization metricResult={metricResult} />
