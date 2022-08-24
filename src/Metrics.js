@@ -29,9 +29,9 @@ const Metrics = (metrics) => {
       <h2>Kennzahlen</h2>
       <AddMetrics />
       <MetricsList />
-      // {
+      {
       //  metrics.current != null ? <AddMetrics /> : <MetricsList />
-      // }
+      }
     </div>
   );
 }
