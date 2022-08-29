@@ -4,7 +4,7 @@ const REMOVE_METRICS = "REMOVE_METRICS";
 
 let nextMetricsId = 0
 
-export const addMetrics = (Title, Description, Query, InputCategory, OutputCategory) => ({
+export const saveMetrics = (Title, Description, Query, InputCategory, OutputCategory) => ({
   type: ADD_METRICS,
   payload: {
     id: ++nextMetricsId,

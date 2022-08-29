@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux'
-import { addMetrics } from '../../features/metrics/metricsActions'
+import { saveMetrics } from '../../features/metrics/metricsActions'
 import styled from 'styled-components'
 
 const Button = styled.button`
@@ -39,8 +39,8 @@ class AddMetrics extends React.Component {
     this.setState({ OutputCategory });
   };
 
-  handleAddMetrics = () => {
-    this.props.addMetrics(this.state.Title, this.state.Description, this.state.Query, this.state.InputCategory, this.state.OutputCategory);
+  handleSaveMetrics = () => {
+    this.props.saveMetrics(this.state.Title, this.state.Description, this.state.Query, this.state.InputCategory, this.state.OutputCategory);
 
     this.setState({ Title: "" });
     this.setState({ Description: "" });
@@ -48,6 +48,16 @@ class AddMetrics extends React.Component {
     this.setState({ InputCategory: "" });
     this.setState({ OutputCategory: "" });
   };
+
+  saveDialog = (handleSaveMetrics) => {
+
+      if (window.confirm("Kennzahl speichern?") == true) {
+          this.handleSaveMetrics();
+      } else {
+
+      }
+
+    };
 
   render() {
     return (
@@ -81,8 +91,8 @@ class AddMetrics extends React.Component {
           onChange={e => this.updateOutputCategory(e.target.value)}
           value={this.state.OutputCategory}
         />
-        <Button className="add-metrics" onClick={this.handleAddMetrics}>
-          Kennzahl hinzufügen
+        <Button className="save-metrics" onClick={this.saveDialog}>
+          Speichern
         </Button>
         <br />
         <br />
@@ -94,6 +104,6 @@ class AddMetrics extends React.Component {
 
 export default connect(
   null,
-  { addMetrics }
+  { saveMetrics }
 )(AddMetrics);
 
