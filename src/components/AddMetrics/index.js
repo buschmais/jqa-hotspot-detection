@@ -50,54 +50,86 @@ class AddMetrics extends React.Component {
   };
 
   saveDialog = (handleSaveMetrics) => {
-
-      if (window.confirm("Kennzahl speichern?") == true) {
+    if (this.state.Title === undefined || this.state.Description === undefined || this.state.Query === undefined ||
+        this.state.InputCategory === undefined || this.state.OutputCategory === undefined) {
+        window.alert("Es müssen alle Felder ausgefüllt sein.")}
+    else {
+        console.log(this.state.Title)
+      if (window.confirm("Kennzahl speichern und der Liste hinzufügen?") === true) {
           this.handleSaveMetrics();
       } else {
 
       }
 
-    };
+    }};
 
   render() {
     return (
-      <div>
+    <div>
+      <table>
+      <tr>
+      <td>
         <label htmlFor="Title">Titel: </label>
-        <input id="Title"
+      </td>
+      <td>
+        <input id="Title" required
           onChange={e => this.updateTitle(e.target.value)}
           value={this.state.Title}
         />
-        <br />
+      </td>
+      </tr>
+      <tr>
+      <td>
         <label htmlFor="Description">Beschreibung: </label>
+      </td>
+      <td>
         <input id="Description"
           onChange={e => this.updateDescription(e.target.value)}
           value={this.state.Description}
         />
-        <br />
+      </td>
+      </tr>
+      <tr>
+      <td>
         <label htmlFor="Query">Abfrage: </label>
+      </td>
+      <td>
         <input id="Query"
           onChange={e => this.updateQuery(e.target.value)}
           value={this.state.Query}
         />
-        <br />
+      </td>
+      </tr>
+      <tr>
+      <td>
         <label htmlFor="InputCategory">Input-Kategorie: </label>
+      </td>
+      <td>
         <input id="InputCategory"
           onChange={e => this.updateInputCategory(e.target.value)}
           value={this.state.InputCategory}
         />
-        <br />
+      </td>
+      </tr>
+      <tr>
+      <td>
         <label htmlFor="OutputCategory">Output-Kategorie: </label>
+      </td>
+      <td>
         <input id="OutputCategory"
           onChange={e => this.updateOutputCategory(e.target.value)}
           value={this.state.OutputCategory}
         />
+      </td>
+      <td>
         <Button className="save-metrics" onClick={this.saveDialog}>
           Speichern
         </Button>
-        <br />
-        <br />
-        <br />
-      </div>
+      </td>
+      </tr>
+      </table>
+      <br/>
+    </div>
     );
   }
 }
