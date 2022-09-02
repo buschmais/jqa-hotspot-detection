@@ -1,3 +1,6 @@
+import React from "react";
+import { connect } from 'react-redux'
+
 const ADD_METRICS = "ADD_METRICS";
 const TOGGLE_METRICS = "TOGGLE_METRICS";
 const REMOVE_METRICS = "REMOVE_METRICS";
@@ -22,8 +25,11 @@ export const toggleMetrics = id => ({
 });
 
 export const removeMetrics = id => ({
-  type: REMOVE_METRICS,
-  payload: { id }
+
+              type: REMOVE_METRICS,
+              payload: { id }
+
+
 });
 
 export { ADD_METRICS, TOGGLE_METRICS, REMOVE_METRICS };

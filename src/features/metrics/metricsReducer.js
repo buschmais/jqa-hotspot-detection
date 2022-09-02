@@ -41,6 +41,7 @@ const metricsReducer = function(state = initialState, action) {
       };
     }
     case REMOVE_METRICS: {
+        if (window.confirm("Kennzahl aus der Liste entfernen?") === true) {
       const { id } = action.payload;
       const allIds = state.allIds.filter((metricsId) => metricsId !== id);
       const { [id]: removeMetrics, ...byIds } = state.byIds;
@@ -48,7 +49,8 @@ const metricsReducer = function(state = initialState, action) {
         ...state,
         allIds: allIds,
         byIds: byIds
-      }
+      }}
+        else {}
     }
     default:
       return state;

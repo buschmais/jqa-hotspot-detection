@@ -3,10 +3,14 @@ import { connect } from "react-redux";
 import { removeMetrics, toggleMetrics } from "../../features/metrics/metricsActions";
 import styled from 'styled-components';
 import Icon from "react-crud-icons";
-
 import "../react-crud-icons.css";
 
-const MetricsListItem = ({ item, toggleMetrics, removeMetrics }) => (
+//const removeDialog = id => {
+//    console.log(item.id);
+//    removeMetrics(item.id) };
+
+
+const MetricsListItem = ({item, removeMetrics, toggleMetrics}) => (
   <tr className="metrics-item" >
     <td onClick={() => toggleMetrics(item.id)}>
         {item && item.completed ? "👌" : "👋"}{" "}
