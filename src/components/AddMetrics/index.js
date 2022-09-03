@@ -49,6 +49,14 @@ class AddMetrics extends React.Component {
     this.setState({ OutputCategory: "" });
   };
 
+  handleQuitMetrics = () => {
+    this.setState({ Title: "" });
+    this.setState({ Description: "" });
+    this.setState({ Query: "" });
+    this.setState({ InputCategory: "" });
+    this.setState({ OutputCategory: "" });
+  };
+
   saveDialog = (handleSaveMetrics) => {
     if (this.state.Title === undefined || this.state.Description === undefined || this.state.Query === undefined ||
         this.state.InputCategory === undefined || this.state.OutputCategory === undefined) {
@@ -57,11 +65,15 @@ class AddMetrics extends React.Component {
         console.log(this.state.Title)
       if (window.confirm("Kennzahl speichern und der Liste hinzufügen?") === true) {
           this.handleSaveMetrics();
-      } else {
-
-      }
-
+      } else{ }
     }};
+
+  quitDialog = (handleQuitMetrics) => {
+     if (window.confirm("Abbrechen und zur Liste zurückkehren? Die bereits eingegebenen Daten werden verworfen.")
+        === true) {
+            this.handleQuitMetrics(); }
+     else { }
+  };
 
   render() {
     return (
@@ -110,6 +122,11 @@ class AddMetrics extends React.Component {
           value={this.state.InputCategory}
         />
       </td>
+      <td>
+        <Button className="save-metrics" onClick={this.saveDialog}>
+                  Speichern
+        </Button>
+      </td>
       </tr>
       <tr>
       <td>
@@ -122,8 +139,8 @@ class AddMetrics extends React.Component {
         />
       </td>
       <td>
-        <Button className="save-metrics" onClick={this.saveDialog}>
-          Speichern
+        <Button className="quit-metrics" onClick={this.quitDialog}>
+          Abbrechen
         </Button>
       </td>
       </tr>
