@@ -2,8 +2,18 @@ import React from "react";
 import { connect } from 'react-redux'
 import { saveMetrics } from '../../features/metrics/metricsActions'
 import styled from 'styled-components'
+//import Metrics from 'Metrics'
 
-const Button = styled.button`
+const SaveButton = styled.button`
+  background: mediumseagreen;
+  color: white;
+  border-radius: 3px;
+  border: 2px solid mediumseagreen;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  `
+
+const QuitButton = styled.button`
   background: palevioletred;
   color: white;
   border-radius: 3px;
@@ -21,7 +31,7 @@ class AddMetrics extends React.Component {
     this.state = { InputCategory: "" };
     this.state = { OutputCategory: "" };
     console.log(this.props)
-  }
+  };
 
   updateTitle = Title => {
     this.setState({ Title });
@@ -123,9 +133,9 @@ class AddMetrics extends React.Component {
         />
       </td>
       <td>
-        <Button className="save-metrics" onClick={this.saveDialog}>
+        <SaveButton className="save-metrics" onClick={this.saveDialog}>
                   Speichern
-        </Button>
+        </SaveButton>
       </td>
       </tr>
       <tr>
@@ -139,9 +149,9 @@ class AddMetrics extends React.Component {
         />
       </td>
       <td>
-        <Button className="quit-metrics" onClick={this.quitDialog}>
+        <QuitButton className="quit-metrics" onClick={this.quitDialog}>
           Abbrechen
-        </Button>
+        </QuitButton>
       </td>
       </tr>
       </table>

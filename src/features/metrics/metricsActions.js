@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 const ADD_METRICS = "ADD_METRICS";
 const TOGGLE_METRICS = "TOGGLE_METRICS";
 const REMOVE_METRICS = "REMOVE_METRICS";
+const EDIT_METRICS = "EDIT_METRICS";
 
 let nextMetricsId = 0
 
@@ -25,11 +26,21 @@ export const toggleMetrics = id => ({
 });
 
 export const removeMetrics = id => ({
-
               type: REMOVE_METRICS,
               payload: { id }
-
-
 });
 
-export { ADD_METRICS, TOGGLE_METRICS, REMOVE_METRICS };
+export const editMetrics = (id, Title, Description, Query, InputCategory, OutputCategory, completed) => ({
+  type: EDIT_METRICS,
+  payload: {
+    id,
+    Title,
+    Description,
+    Query,
+    InputCategory,
+    OutputCategory,
+    completed
+  }
+});
+
+export { ADD_METRICS, TOGGLE_METRICS, REMOVE_METRICS, EDIT_METRICS };
