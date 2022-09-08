@@ -1,16 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { removeMetrics, toggleMetrics } from "../../features/metrics/metricsActions";
+import { removeMetrics, toggleMetrics, editMetrics } from "../../features/metrics/metricsActions";
 import styled from 'styled-components';
 import Icon from "react-crud-icons";
 import "../react-crud-icons.css";
 
-//const removeDialog = id => {
-//    console.log(item.id);
-//    removeMetrics(item.id) };
 
-
-const MetricsListItem = ({item, removeMetrics, toggleMetrics}) => (
+const MetricsListItem = ({item, removeMetrics, toggleMetrics, editMetrics}) => (
   <tr className="metrics-item" >
     <td onClick={() => toggleMetrics(item.id)}>
         {item && item.completed ? "👌" : "👋"}{" "}
@@ -31,13 +27,23 @@ const MetricsListItem = ({item, removeMetrics, toggleMetrics}) => (
           {item.OutputCategory}
     </td>
     <td>
-      <button className="destroy" onClick={() => removeMetrics(item.id)}>
-      <Icon
-              name = "close"
-              tooltip = "Kennzahl löschen."
+      <button className="edit" onClick={() => editMetrics(item.id)}>
+        <Icon
+              name = "edit"
+              tooltip = "Kennzahl bearbeiten."
               theme = "light"
-              size = "tiny"
+              size = "small"
             />
+      </button>
+    </td>
+    <td>
+      <button className="destroy" onClick={() => removeMetrics(item.id)}>
+        <Icon
+                  name = "close"
+                  tooltip = "Kennzahl löschen."
+                  theme = "light"
+                  size = "small"
+                />
       </button>
     </td>
   </tr>
@@ -45,5 +51,5 @@ const MetricsListItem = ({item, removeMetrics, toggleMetrics}) => (
 
 export default connect(
   null,
-  { toggleMetrics, removeMetrics }
+  { toggleMetrics, removeMetrics, editMetrics }
 )(MetricsListItem);
