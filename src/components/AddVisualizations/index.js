@@ -63,8 +63,10 @@ class AddVisualizations extends React.Component {
   };
 
   saveDialog = (handleSaveVisualizations) => {
-    if (this.state.Title === undefined || this.state.InputCategory === undefined || this.state.OutputCategory === undefined || this.state.VisualizationType === undefined)
-         {
+    if ((!this.state.Title || this.state.Title.trim().length === 0) || (!this.state.InputCategory ||
+         this.state.InputCategory.trim().length === 0) || (!this.state.OutputCategory ||
+         this.state.OutputCategory.trim().length === 0) || (!this.state.VisualizationType ||
+         this.state.VisualizationType.trim().length === 0)) {
         window.alert("Es müssen alle Felder ausgefüllt sein.")}
     else {
         console.log(this.state.Title)

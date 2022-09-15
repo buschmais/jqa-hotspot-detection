@@ -68,11 +68,16 @@ class AddMetrics extends React.Component {
   };
 
   saveDialog = (handleSaveMetrics) => {
-    if (this.state.Title === undefined || this.state.Description === undefined || this.state.Query === undefined ||
-        this.state.InputCategory === undefined || this.state.OutputCategory === undefined) {
+    if ((!this.state.Title || this.state.Title.trim().length === 0) || (!this.state.Description ||
+        this.state.Description.trim().length === 0) || (!this.state.Query || this.state.Query.trim().length === 0) ||
+        (!this.state.InputCategory || this.state.InputCategory.trim().length === 0) ||
+        (!this.state.OutputCategory || this.state.Title.trim().length === 0)) {
+
+        console.log(typeof(this.state.Title, this.state.Description, this.state.Query))
         window.alert("Es müssen alle Felder ausgefüllt sein.")}
     else {
-        console.log(this.state.Title)
+        console.log(this.state.OutputCategory);
+
       if (window.confirm("Kennzahl speichern und der Liste hinzufügen?") === true) {
           this.handleSaveMetrics();
       } else{ }

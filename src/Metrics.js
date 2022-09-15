@@ -21,7 +21,7 @@ const Metrics = (metrics) => {
   return (
     <div style={{ padding: "1rem 0" }}>
       <h2>Kennzahlen</h2>
-       <MetricsList />
+      <MetricsList />
       <AddMetricsNew />
 
       {
