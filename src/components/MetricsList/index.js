@@ -47,8 +47,8 @@ const MetricsList = ({ metrics }) => (
     <tbody>
     {
     metrics.allIds && metrics.allIds.length
-      ? metrics.allIds.map((id) => metrics.byIds[id]).map((item, index) => {
-          return <MetricsListItem key={`item-${item.id}`} item={item} />;
+      ? metrics.allIds.map((id) => metrics.byIds[id]).map((metrics, index) => {
+          return <MetricsListItem key={`metrics-${metrics.id}`} metrics={metrics} />;
         })
       : "Noch keine Kennzahlen vorhanden."
     }
@@ -57,7 +57,7 @@ const MetricsList = ({ metrics }) => (
 );
 
 const mapStateToProps = state => {
-  return { metrics: state.item };
+  return { metrics: state.metrics };
 };
 
 export default connect(mapStateToProps)(MetricsList);

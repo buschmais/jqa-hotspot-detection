@@ -6,26 +6,26 @@ import Icon from "react-crud-icons";
 import "../react-crud-icons.css";
 
 
-const VisualizationsListItem = ({item, removeVisualizations, toggleVisualizations, editVisualizations}) => (
+const VisualizationsListItem = ({visualizations, removeVisualizations, toggleVisualizations, editVisualizations}) => (
   <tr className="visualizations-item" >
-    <td onClick={() => toggleVisualizations(item.id)}>
-        {item && item.completed ? "👌" : "👋"}{" "}
+    <td onClick={() => toggleVisualizations(visualizations.id)}>
+        {visualizations && visualizations.completed ? "👌" : "👋"}{" "}
     </td>
     <td>
-          {item.Title}
+          {visualizations.Title}
     </td>
 
     <td>
-          {item.InputCategory}
+          {visualizations.InputCategory}
     </td>
     <td>
-          {item.OutputCategory}
+          {visualizations.OutputCategory}
     </td>
     <td>
-          {item.VisualizationType}
+          {visualizations.VisualizationType}
         </td>
     <td>
-      <button className="edit" onClick={() => editVisualizations(item.id)}>
+      <button className="edit" onClick={() => editVisualizations(visualizations.id)}>
         <Icon
               name = "edit"
               tooltip = "Visualisierung bearbeiten."
@@ -35,7 +35,7 @@ const VisualizationsListItem = ({item, removeVisualizations, toggleVisualization
       </button>
     </td>
     <td>
-      <button className="destroy" onClick={() => removeVisualizations(item.id)}>
+      <button className="destroy" onClick={() => removeVisualizations(visualizations.id)}>
         <Icon
                   name = "close"
                   tooltip = "Visualisierung löschen."

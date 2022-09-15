@@ -44,7 +44,7 @@ const AddVisualizationsNew = (current) => {
 }
 
 const mapStateToProps = state => {
-  return { visualizations: state.item };
+  return { visualizations: state.visualizations, metrics: state.metrics };
 };
 
 export default connect(mapStateToProps)(Visualizations);

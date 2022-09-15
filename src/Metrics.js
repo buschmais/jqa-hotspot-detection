@@ -44,7 +44,7 @@ const AddMetricsNew = (current) => {
 }
 
 const mapStateToProps = state => {
-  return { metrics: state.item };
+  return { metrics: state.metrics };
 };
 
 export default connect(mapStateToProps)(Metrics);

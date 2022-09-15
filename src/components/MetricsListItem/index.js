@@ -6,28 +6,28 @@ import Icon from "react-crud-icons";
 import "../react-crud-icons.css";
 
 
-const MetricsListItem = ({item, removeMetrics, toggleMetrics, editMetrics}) => (
+const MetricsListItem = ({metrics, removeMetrics, toggleMetrics, editMetrics}) => (
   <tr className="metrics-item" >
-    <td onClick={() => toggleMetrics(item.id)}>
-        {item && item.completed ? "👌" : "👋"}{" "}
+    <td onClick={() => toggleMetrics(metrics.id)}>
+        {metrics && metrics.completed ? "👌" : "👋"}{" "}
     </td>
     <td>
-          {item.Title}
+          {metrics.Title}
     </td>
     <td>
-          {item.Description}
+          {metrics.Description}
     </td>
     <td>
-          {item.Query}
+          {metrics.Query}
     </td>
     <td>
-          {item.InputCategory}
+          {metrics.InputCategory}
     </td>
     <td>
-          {item.OutputCategory}
+          {metrics.OutputCategory}
     </td>
     <td>
-      <button className="edit" onClick={() => editMetrics(item.id)}>
+      <button className="edit" onClick={() => editMetrics(metrics.id)}>
         <Icon
               name = "edit"
               tooltip = "Kennzahl bearbeiten."
@@ -37,7 +37,7 @@ const MetricsListItem = ({item, removeMetrics, toggleMetrics, editMetrics}) => (
       </button>
     </td>
     <td>
-      <button className="destroy" onClick={() => removeMetrics(item.id)}>
+      <button className="destroy" onClick={() => removeMetrics(metrics.id)}>
         <Icon
                   name = "close"
                   tooltip = "Kennzahl löschen."

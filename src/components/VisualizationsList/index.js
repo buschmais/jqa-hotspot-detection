@@ -45,8 +45,8 @@ const VisualizationsList = ({ visualizations }) => (
     <tbody>
     {
     visualizations.allIds && visualizations.allIds.length
-      ? visualizations.allIds.map((id) => visualizations.byIds[id]).map((item, index) => {
-          return <VisualizationsListItem key={`item-${item.id}`} item={item} />;
+      ? visualizations.allIds.map((id) => visualizations.byIds[id]).map((visualizations, index) => {
+          return <VisualizationsListItem key={`visualizations-${visualizations.id}`} visualizations={visualizations} />;
         })
       : "Noch keine Visualisierung vorhanden."
     }
@@ -55,7 +55,7 @@ const VisualizationsList = ({ visualizations }) => (
 );
 
 const mapStateToProps = state => {
-  return { visualizations: state.item };
+  return { visualizations: state.visualizations };
 };
 
 export default connect(mapStateToProps)(VisualizationsList);
