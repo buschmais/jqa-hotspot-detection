@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux'
 
 const ADD_VISUALIZATIONS = "ADD_VISUALIZATIONS";
-const TOGGLE_VISUALIZATIONS = "TOGGLE_VISUALIZATIONS";
+//const TOGGLE_VISUALIZATIONS = "TOGGLE_VISUALIZATIONS";
 const REMOVE_VISUALIZATIONS = "REMOVE_VISUALIZATIONS";
 const EDIT_VISUALIZATIONS = "EDIT_VISUALIZATIONS";
 
@@ -19,10 +19,10 @@ export const saveVisualizations = (Title, InputCategory, OutputCategory, Visuali
   }
 });
 
-export const toggleVisualizations = id => ({
-  type: TOGGLE_VISUALIZATIONS,
-  payload: { id }
-});
+//export const toggleVisualizations = id => ({
+//  type: TOGGLE_VISUALIZATIONS,
+//  payload: { id }
+//});
 
 export const removeVisualizations = id => ({
               type: REMOVE_VISUALIZATIONS,
@@ -41,4 +41,6 @@ export const editVisualizations = (id, Title, InputCategory, OutputCategory, Vis
   }
 });
 
-export { ADD_VISUALIZATIONS, TOGGLE_VISUALIZATIONS, REMOVE_VISUALIZATIONS, EDIT_VISUALIZATIONS };
+export { ADD_VISUALIZATIONS,
+//TOGGLE_VISUALIZATIONS,
+REMOVE_VISUALIZATIONS, EDIT_VISUALIZATIONS };

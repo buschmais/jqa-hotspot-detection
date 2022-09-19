@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux'
 
 const ADD_METRICS = "ADD_METRICS";
-const TOGGLE_METRICS = "TOGGLE_METRICS";
+//const TOGGLE_METRICS = "TOGGLE_METRICS";
 const REMOVE_METRICS = "REMOVE_METRICS";
 const EDIT_METRICS = "EDIT_METRICS";
 
@@ -20,10 +20,10 @@ export const saveMetrics = (Title, Description, Query, InputCategory, OutputCate
   }
 });
 
-export const toggleMetrics = id => ({
-  type: TOGGLE_METRICS,
-  payload: { id }
-});
+//export const toggleMetrics = id => ({
+//  type: TOGGLE_METRICS,
+//  payload: { id }
+//});
 
 export const removeMetrics = id => ({
               type: REMOVE_METRICS,
@@ -43,4 +43,6 @@ export const editMetrics = (id, Title, Description, Query, InputCategory, Output
   }
 });
 
-export { ADD_METRICS, TOGGLE_METRICS, REMOVE_METRICS, EDIT_METRICS };
+export {
+//TOGGLE_METRICS,
+ADD_METRICS, REMOVE_METRICS, EDIT_METRICS };

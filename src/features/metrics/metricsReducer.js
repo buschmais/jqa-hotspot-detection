@@ -1,4 +1,6 @@
-import { ADD_METRICS, TOGGLE_METRICS, REMOVE_METRICS, EDIT_METRICS } from "./metricsActions";
+import { ADD_METRICS,
+//TOGGLE_METRICS,
+REMOVE_METRICS, EDIT_METRICS } from "./metricsActions";
 
 const initialState = {
   allIds: [],
@@ -27,19 +29,19 @@ const metricsReducer = function(state = initialState, action) {
         }
       };
     };
-    case TOGGLE_METRICS: {
-      const { id } = action.payload;
-      return {
-        ...state,
-        byIds: {
-          ...state.byIds,
-          [id]: {
-            ...state.byIds[id],
-            completed: !state.byIds[id].completed
-          }
-        }
-      };
-    }
+    //case TOGGLE_METRICS: {
+    //  const { id } = action.payload;
+     // return {
+   //     ...state,
+   //     byIds: {
+   //       ...state.byIds,
+   //       [id]: {
+   //         ...state.byIds[id],
+   //         completed: !state.byIds[id].completed
+   //       }
+   //     }
+   //   };
+   // }
     case REMOVE_METRICS: {
         if (window.confirm("Kennzahl aus der Liste entfernen?") === true) {
       const { id } = action.payload;

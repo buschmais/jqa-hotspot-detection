@@ -22,8 +22,9 @@ const Metrics = (metrics) => {
     <div style={{ padding: "1rem 0" }}>
       <h2>Kennzahlen</h2>
       <MetricsList />
+      <br/>
       <AddMetricsNew />
-
+       <br/>
       {
       current != null ? <AddMetrics /> : <MetricsList />
       }

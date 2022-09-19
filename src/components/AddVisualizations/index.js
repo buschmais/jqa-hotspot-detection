@@ -130,7 +130,7 @@ class AddVisualizations extends React.Component {
 
       <tr>
       <td>
-        <label htmlFor="VisualizationType">VisualizationType: </label>
+        <label htmlFor="VisualizationType">Visualisierungstyp: </label>
       </td>
       <td>
         <input id="VisualizationType"

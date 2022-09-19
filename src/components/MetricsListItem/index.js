@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { removeMetrics, toggleMetrics, editMetrics } from "../../features/metrics/metricsActions";
+import { removeMetrics,
+//toggleMetrics,
+editMetrics } from "../../features/metrics/metricsActions";
 import styled from 'styled-components';
 import Icon from "react-crud-icons";
 import "../react-crud-icons.css";
@@ -8,9 +10,11 @@ import "../react-crud-icons.css";
 
 const MetricsListItem = ({metrics, removeMetrics, toggleMetrics, editMetrics}) => (
   <tr className="metrics-item" >
-    <td onClick={() => toggleMetrics(metrics.id)}>
-        {metrics && metrics.completed ? "👌" : "👋"}{" "}
+<script>
+  <td onClick={() => toggleMetrics(metrics.id)}>
+     {metrics && metrics.completed ? "👌" : "👋"}{" "}
     </td>
+</script>
     <td>
           {metrics.Title}
     </td>
@@ -51,5 +55,8 @@ const MetricsListItem = ({metrics, removeMetrics, toggleMetrics, editMetrics}) =
 
 export default connect(
   null,
-  { toggleMetrics, removeMetrics, editMetrics }
+
+  {
+  //toggleMetrics,
+  removeMetrics, editMetrics }
 )(MetricsListItem);

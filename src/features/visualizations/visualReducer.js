@@ -1,4 +1,6 @@
-import { ADD_VISUALIZATIONS, TOGGLE_VISUALIZATIONS, REMOVE_VISUALIZATIONS, EDIT_VISUALIZATIONS } from "./visualActions";
+import { ADD_VISUALIZATIONS,
+//TOGGLE_VISUALIZATIONS,
+REMOVE_VISUALIZATIONS, EDIT_VISUALIZATIONS } from "./visualActions";
 
 const initialState = {
   allIds: [],
@@ -26,19 +28,19 @@ const visualReducer = function(state = initialState, action) {
         }
       };
     };
-    case TOGGLE_VISUALIZATIONS: {
-      const { id } = action.payload;
-      return {
-        ...state,
-        byIds: {
-          ...state.byIds,
-          [id]: {
-            ...state.byIds[id],
-            completed: !state.byIds[id].completed
-          }
-        }
-      };
-    }
+    //case TOGGLE_VISUALIZATIONS: {
+    //  const { id } = action.payload;
+    //  return {
+    //    ...state,
+    //    byIds: {
+    //      ...state.byIds,
+    //      [id]: {
+    //        ...state.byIds[id],
+    //        completed: !state.byIds[id].completed
+    //      }
+    //    }
+    //  };
+    //}
     case REMOVE_VISUALIZATIONS: {
         if (window.confirm("Visualisierung aus der Liste entfernen?") === true) {
       const { id } = action.payload;

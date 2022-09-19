@@ -24,9 +24,11 @@ const CustomTable = styled.table`
 const VisualizationsList = ({ visualizations }) => (
   <CustomTable>
     <thead>
+    <script>
         <td>
             Status
         </td>
+        </script>
         <td>
             Titel
         </td>
@@ -38,7 +40,7 @@ const VisualizationsList = ({ visualizations }) => (
             Output-Kategorie
         </td>
          <td>
-            VisualizationType
+            Visualisierungstyp
          </td>
 
     </thead>

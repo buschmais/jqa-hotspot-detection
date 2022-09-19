@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { removeVisualizations, toggleVisualizations, editVisualizations } from "../../features/visualizations/visualActions";
+import { removeVisualizations,
+//toggleVisualizations,
+editVisualizations } from "../../features/visualizations/visualActions";
 import styled from 'styled-components';
 import Icon from "react-crud-icons";
 import "../react-crud-icons.css";
@@ -8,9 +10,11 @@ import "../react-crud-icons.css";
 
 const VisualizationsListItem = ({visualizations, removeVisualizations, toggleVisualizations, editVisualizations}) => (
   <tr className="visualizations-item" >
+  <script>
     <td onClick={() => toggleVisualizations(visualizations.id)}>
         {visualizations && visualizations.completed ? "👌" : "👋"}{" "}
     </td>
+    </script>
     <td>
           {visualizations.Title}
     </td>
@@ -49,5 +53,7 @@ const VisualizationsListItem = ({visualizations, removeVisualizations, toggleVis
 
 export default connect(
   null,
-  { toggleVisualizations, removeVisualizations, editVisualizations }
+  {
+  //toggleVisualizations,
+  removeVisualizations, editVisualizations }
 )(VisualizationsListItem);

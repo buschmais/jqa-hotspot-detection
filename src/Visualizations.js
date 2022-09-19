@@ -22,7 +22,9 @@ const Visualizations = (visualizations) => {
     <div style={{ padding: "1rem 0" }}>
       <h2>Visualisierung</h2>
        <VisualizationsList />
+      <br/>
       <AddVisualizationsNew />
+      <br/>
 
       {
       current != null ? <AddVisualizations /> : <VisualizationsList />

@@ -24,9 +24,11 @@ const CustomTable = styled.table`
 const MetricsList = ({ metrics }) => (
   <CustomTable>
     <thead>
+       <script>
         <td>
             Status
         </td>
+        </script>
         <td>
             Titel
         </td>
