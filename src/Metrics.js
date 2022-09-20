@@ -6,31 +6,17 @@ import AddMetrics from './components/AddMetrics'
 import styled from 'styled-components'
 import { useState } from 'react';
 
-const Metrics = (metrics,current) => {
-    console.log(current)
-    console.log(current.id)
-    let page;
-    if (current.id && current.id != null)
-        page = <AddMetrics/>
-    else
-        page = <MetricsList />
-        console.log(metrics)
-    console.log(page)
+const Metrics = ({metrics}) => {
   return (
     <div style={{ padding: "1rem 0" }}>
       <h2>Kennzahlen</h2>
-
-      {
-        page
-      }
+      { metrics.current != null ? <AddMetrics/> : <MetricsList /> }
     </div>
   );
 }
 
-
 const mapStateToProps = state => {
-  return { metrics: state.metrics,
-  current: state.metrics.current};
+  return { metrics: state.metrics }
 };
 
 export default connect(mapStateToProps)(Metrics);
