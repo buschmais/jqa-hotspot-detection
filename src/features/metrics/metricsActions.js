@@ -2,36 +2,28 @@ import React from "react";
 import { connect } from 'react-redux'
 
 const ADD_METRICS = "ADD_METRICS";
-//const TOGGLE_METRICS = "TOGGLE_METRICS";
 const REMOVE_METRICS = "REMOVE_METRICS";
+const SAVE_METRICS = "SAVE_METRICS";
 const EDIT_METRICS = "EDIT_METRICS";
 
-let nextMetricsId = 0
 
-export const saveMetrics = (Title, Description, Query, InputCategory, OutputCategory) => ({
+export const addMetrics = ( ) => ({
   type: ADD_METRICS,
-  payload: {
-    id: ++nextMetricsId,
-    Title,
-    Description,
-    Query,
-    InputCategory,
-    OutputCategory
-  }
+  payload: {  }
 });
 
-//export const toggleMetrics = id => ({
-//  type: TOGGLE_METRICS,
-//  payload: { id }
-//});
+export const editMetrics = (id) => ({
+    type: EDIT_METRICS,
+    payload:{id}
+});
 
 export const removeMetrics = id => ({
               type: REMOVE_METRICS,
               payload: { id }
 });
 
-export const editMetrics = (id, Title, Description, Query, InputCategory, OutputCategory, completed) => ({
-  type: EDIT_METRICS,
+export const saveMetrics = (id, Title, Description, Query, InputCategory, OutputCategory, completed) => ({
+  type: SAVE_METRICS,
   payload: {
     id,
     Title,
@@ -43,6 +35,4 @@ export const editMetrics = (id, Title, Description, Query, InputCategory, Output
   }
 });
 
-export {
-//TOGGLE_METRICS,
-ADD_METRICS, REMOVE_METRICS, EDIT_METRICS };
+export {ADD_METRICS, REMOVE_METRICS, SAVE_METRICS };

@@ -7,7 +7,6 @@ import styled from 'styled-components';
 import Icon from "react-crud-icons";
 import "../react-crud-icons.css";
 
-
 const VisualizationsListItem = ({visualizations, removeVisualizations, toggleVisualizations, editVisualizations}) => (
   <tr className="visualizations-item" >
   <script>

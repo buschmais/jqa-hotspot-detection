@@ -1,15 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { removeMetrics,
-//toggleMetrics,
-editMetrics } from "../../features/metrics/metricsActions";
+import { removeMetrics, editMetrics } from "../../features/metrics/metricsActions";
 import styled from 'styled-components';
 import Icon from "react-crud-icons";
 import "../react-crud-icons.css";
 
-
 const MetricsListItem = ({metrics, removeMetrics, toggleMetrics, editMetrics}) => (
-  <tr className="metrics-item" >
+  <tr className="metrics-item">
 <script>
   <td onClick={() => toggleMetrics(metrics.id)}>
      {metrics && metrics.completed ? "👌" : "👋"}{" "}
@@ -53,10 +50,4 @@ const MetricsListItem = ({metrics, removeMetrics, toggleMetrics, editMetrics}) =
   </tr>
 )
 
-export default connect(
-  null,
-
-  {
-  //toggleMetrics,
-  removeMetrics, editMetrics }
-)(MetricsListItem);
+export default connect(null, { removeMetrics, editMetrics })(MetricsListItem);

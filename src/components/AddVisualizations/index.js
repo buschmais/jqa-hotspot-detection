@@ -110,7 +110,6 @@ class AddVisualizations extends React.Component {
       </td>
       </tr>
 
-
       <tr>
       <td>
         <label htmlFor="OutputCategory">Output-Kategorie: </label>
@@ -144,7 +143,6 @@ class AddVisualizations extends React.Component {
       </QuitButton>
       </td>
       </tr>
-
       </table>
       <br/>
     </div>

@@ -1,7 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import MetricsListItem from "../MetricsListItem";
-import styled from 'styled-components'
+import styled from 'styled-components';
+import {addMetrics} from "../../features/metrics/metricsActions";
+
+const Button = styled.button`
+  background: palevioletred;
+  color: white;
+  border-radius: 3px;
+  border: 2px solid palevioletred;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  `
 
 const CustomTable = styled.table`
   &&& {
@@ -21,7 +31,17 @@ const CustomTable = styled.table`
   }
 `;
 
-const MetricsList = ({ metrics }) => (
+const MetricsList = ({ metrics, addMetrics }) => {
+    const AddMetricsNew = (current) => {
+    return (
+    <div className ='AddMetrics'>
+    <Button className="add-metrics" onClick={() => addMetrics()}>Neue Kennzahl</Button>
+    </div>
+    );
+    };
+return(
+<div>
+  <AddMetricsNew/> <br/>
   <CustomTable>
     <thead>
        <script>
@@ -44,7 +64,6 @@ const MetricsList = ({ metrics }) => (
         <td>
             Output-Kategorie
         </td>
-
     </thead>
     <tbody>
     {
@@ -56,10 +75,11 @@ const MetricsList = ({ metrics }) => (
     }
     </tbody>
   </CustomTable>
-);
+</div>
+)};
 
 const mapStateToProps = state => {
   return { metrics: state.metrics };
 };
 
-export default connect(mapStateToProps)(MetricsList);
+export default connect(mapStateToProps,{addMetrics})(MetricsList);

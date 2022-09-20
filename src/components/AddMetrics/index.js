@@ -25,12 +25,14 @@ const QuitButton = styled.button`
 class AddMetrics extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { Title: "" };
-    this.state = { Description: "" };
-    this.state = { Query: "" };
-    this.state = { InputCategory: "" };
-    this.state = { OutputCategory: "" };
-    console.log(this.props)
+
+    this.state = props.metrics.current;
+    //this.state = { Title: "" };
+    //this.state = { Description: "" };
+    //this.state = { Query: "" };
+    //this.state = { InputCategory: "" };
+    //this.state = { OutputCategory: "" };
+
   };
 
   updateTitle = Title => {
@@ -73,11 +75,8 @@ class AddMetrics extends React.Component {
         (!this.state.InputCategory || this.state.InputCategory.trim().length === 0) ||
         (!this.state.OutputCategory || this.state.OutputCategory.trim().length === 0)) {
 
-        console.log(typeof(this.state.Title, this.state.Description, this.state.Query))
         window.alert("Es müssen alle Felder ausgefüllt sein.")}
     else {
-        console.log(this.state.OutputCategory);
-
       if (window.confirm("Kennzahl speichern und der Liste hinzufügen?") === true) {
           this.handleSaveMetrics();
       } else{ }
@@ -166,8 +165,12 @@ class AddMetrics extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return { metrics: state.metrics };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { saveMetrics }
 )(AddMetrics);
 

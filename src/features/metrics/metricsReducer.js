@@ -1,47 +1,30 @@
-import { ADD_METRICS,
-//TOGGLE_METRICS,
-REMOVE_METRICS, EDIT_METRICS } from "./metricsActions";
+import { ADD_METRICS, REMOVE_METRICS, SAVE_METRICS } from "./metricsActions";
 
 const initialState = {
   allIds: [],
   byIds: {},
-  current: null
+  current: null,
+  nextMetricsId: 0
 };
 
 const metricsReducer = function(state = initialState, action) {
   switch (action.type) {
     case ADD_METRICS: {
-      const { id, Title, Description, Query, InputCategory, OutputCategory } = action.payload;
+        alert("Reducer")
+      const id = state.nextMetricsId;
       return {
         ...state,
-        allIds: [...state.allIds, id],
-        byIds: {
-          ...state.byIds,
-          [id]: {
-            id,
-            Title,
-            Description,
-            Query,
-            InputCategory,
-            OutputCategory,
-            completed: false
-          }
-        }
-      };
+        current: {
+          id,
+          Title:"",
+          Description:"",
+          Query:"",
+          InputCategory:"",
+          OutputCategory:""
+        },
+        nextMetricsId: id+1
+      }
     };
-    //case TOGGLE_METRICS: {
-    //  const { id } = action.payload;
-     // return {
-   //     ...state,
-   //     byIds: {
-   //       ...state.byIds,
-   //       [id]: {
-   //         ...state.byIds[id],
-   //         completed: !state.byIds[id].completed
-   //       }
-   //     }
-   //   };
-   // }
     case REMOVE_METRICS: {
         if (window.confirm("Kennzahl aus der Liste entfernen?") === true) {
       const { id } = action.payload;
@@ -54,7 +37,7 @@ const metricsReducer = function(state = initialState, action) {
       }}
         else {}
     }
-    case EDIT_METRICS: {
+    case SAVE_METRICS: {
       if (window.confirm("Kennzahl bearbeiten?") === true) {
       const { id, Title, Description, Query, InputCategory, OutputCategory, completed } = action.payload;
             return {

@@ -6,46 +6,31 @@ import AddMetrics from './components/AddMetrics'
 import styled from 'styled-components'
 import { useState } from 'react';
 
-const Button = styled.button`
-  background: palevioletred;
-  color: white;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  margin: 0 1em;
-  padding: 0.25em 1em;
-  `
-
-const Metrics = (metrics) => {
-    let current = 0;
+const Metrics = (metrics,current) => {
     console.log(current)
+    console.log(current.id)
+    let page;
+    if (current.id && current.id != null)
+        page = <AddMetrics/>
+    else
+        page = <MetricsList />
+        console.log(metrics)
+    console.log(page)
   return (
     <div style={{ padding: "1rem 0" }}>
       <h2>Kennzahlen</h2>
-      <MetricsList />
-      <br/>
-      <AddMetricsNew />
-       <br/>
+
       {
-      current != null ? <AddMetrics /> : <MetricsList />
+        page
       }
     </div>
   );
 }
 
-const AddMetricsNew = (current) => {
-
-
-    return (
-    <div className ='AddMetrics'>
-    <Button className="add-metrics" onClick={(current=1)}>Neue Kennzahl</Button>
-
-    </div>
-    );
-
-}
 
 const mapStateToProps = state => {
-  return { metrics: state.metrics };
+  return { metrics: state.metrics,
+  current: state.metrics.current};
 };
 
 export default connect(mapStateToProps)(Metrics);

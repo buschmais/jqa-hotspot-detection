@@ -42,7 +42,6 @@ const VisualizationsList = ({ visualizations }) => (
          <td>
             Visualisierungstyp
          </td>
-
     </thead>
     <tbody>
     {
