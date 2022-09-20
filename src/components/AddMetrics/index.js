@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux'
-import { saveMetrics } from '../../features/metrics/metricsActions'
+import { saveMetrics, quitMetrics } from '../../features/metrics/metricsActions'
 import styled from 'styled-components'
 //import Metrics from 'Metrics'
 
@@ -25,14 +25,7 @@ const QuitButton = styled.button`
 class AddMetrics extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = props.metrics.current;
-    //this.state = { Title: "" };
-    //this.state = { Description: "" };
-    //this.state = { Query: "" };
-    //this.state = { InputCategory: "" };
-    //this.state = { OutputCategory: "" };
-
   };
 
   updateTitle = Title => {
@@ -52,7 +45,7 @@ class AddMetrics extends React.Component {
   };
 
   handleSaveMetrics = () => {
-    this.props.saveMetrics(this.state.Title, this.state.Description, this.state.Query, this.state.InputCategory, this.state.OutputCategory);
+    this.props.saveMetrics(this.state.id, this.state.Title, this.state.Description, this.state.Query, this.state.InputCategory, this.state.OutputCategory);
 
     this.setState({ Title: "" });
     this.setState({ Description: "" });
@@ -62,6 +55,7 @@ class AddMetrics extends React.Component {
   };
 
   handleQuitMetrics = () => {
+    this.props.quitMetrics(this.state.id);
     this.setState({ Title: "" });
     this.setState({ Description: "" });
     this.setState({ Query: "" });
@@ -77,7 +71,7 @@ class AddMetrics extends React.Component {
 
         window.alert("Es müssen alle Felder ausgefüllt sein.")}
     else {
-      if (window.confirm("Kennzahl speichern und der Liste hinzufügen?") === true) {
+      if (window.confirm("Kennzahl speichern?") === true) {
           this.handleSaveMetrics();
       } else{ }
     }};
@@ -171,6 +165,6 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { saveMetrics }
+  { saveMetrics, quitMetrics }
 )(AddMetrics);
 

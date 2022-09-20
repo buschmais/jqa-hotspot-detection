@@ -32,6 +32,7 @@ const CustomTable = styled.table`
 `;
 
 const MetricsList = ({ metrics, addMetrics }) => {
+console.log(metrics)
     const AddMetricsNew = (current) => {
     return (
     <div className ='AddMetrics'>
@@ -44,11 +45,6 @@ return(
   <AddMetricsNew/> <br/>
   <CustomTable>
     <thead>
-       <script>
-        <td>
-            Status
-        </td>
-        </script>
         <td>
             Titel
         </td>

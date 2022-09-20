@@ -5,7 +5,7 @@ const ADD_METRICS = "ADD_METRICS";
 const REMOVE_METRICS = "REMOVE_METRICS";
 const SAVE_METRICS = "SAVE_METRICS";
 const EDIT_METRICS = "EDIT_METRICS";
-
+const QUIT_METRICS = "QUIT_METRICS";
 
 export const addMetrics = ( ) => ({
   type: ADD_METRICS,
@@ -22,7 +22,7 @@ export const removeMetrics = id => ({
               payload: { id }
 });
 
-export const saveMetrics = (id, Title, Description, Query, InputCategory, OutputCategory, completed) => ({
+export const saveMetrics = (id, Title, Description, Query, InputCategory, OutputCategory) => ({
   type: SAVE_METRICS,
   payload: {
     id,
@@ -30,9 +30,13 @@ export const saveMetrics = (id, Title, Description, Query, InputCategory, Output
     Description,
     Query,
     InputCategory,
-    OutputCategory,
-    completed
+    OutputCategory
   }
 });
 
-export {ADD_METRICS, REMOVE_METRICS, SAVE_METRICS };
+export const quitMetrics = (id) => ({
+    type: QUIT_METRICS,
+    payload: { id }
+});
+
+export {ADD_METRICS, REMOVE_METRICS, SAVE_METRICS, EDIT_METRICS, QUIT_METRICS};

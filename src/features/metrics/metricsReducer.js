@@ -1,4 +1,4 @@
-import { ADD_METRICS, REMOVE_METRICS, SAVE_METRICS } from "./metricsActions";
+import { ADD_METRICS, REMOVE_METRICS, SAVE_METRICS, EDIT_METRICS, QUIT_METRICS } from "./metricsActions";
 
 const initialState = {
   allIds: [],
@@ -10,7 +10,6 @@ const initialState = {
 const metricsReducer = function(state = initialState, action) {
   switch (action.type) {
     case ADD_METRICS: {
-        alert("Reducer")
       const id = state.nextMetricsId;
       return {
         ...state,
@@ -25,8 +24,14 @@ const metricsReducer = function(state = initialState, action) {
         nextMetricsId: id+1
       }
     };
+    case EDIT_METRICS: {
+        const { id } = action.payload;
+        return{
+            ...state,
+            current: state.byIds[id]
+        }
+    }
     case REMOVE_METRICS: {
-        if (window.confirm("Kennzahl aus der Liste entfernen?") === true) {
       const { id } = action.payload;
       const allIds = state.allIds.filter((metricsId) => metricsId !== id);
       const { [id]: removeMetrics, ...byIds } = state.byIds;
@@ -34,29 +39,41 @@ const metricsReducer = function(state = initialState, action) {
         ...state,
         allIds: allIds,
         byIds: byIds
-      }}
-        else {}
+      }
     }
     case SAVE_METRICS: {
-      if (window.confirm("Kennzahl bearbeiten?") === true) {
-      const { id, Title, Description, Query, InputCategory, OutputCategory, completed } = action.payload;
+      const { id, Title, Description, Query, InputCategory, OutputCategory } = action.payload;
+      console.log(action.payload)
+      const byIds = {
+        ...state.byIds,
+        [id]: {
+        id,
+        Title,
+        Description,
+        Query,
+        InputCategory,
+        OutputCategory
+        }
+      };
+      const allIds = state.byIds[id] ? state.allIds : [...state.allIds, id];
             return {
               ...state,
-              allIds: [...state.allIds, id],
-              byIds: {
-                ...state.byIds,
-                [id]: {
-                  id,
-                  Title,
-                  Description,
-                  Query,
-                  InputCategory,
-                  OutputCategory,
-                  completed
-                }
-              }}}
-      else {}
-        };
+              allIds: allIds,
+              byIds: byIds,
+              current: null
+            }
+      }
+    case QUIT_METRICS: {
+        const { id } = action.payload;
+        const allIds = state.allIds.filter((metricsId) => metricsId !== id);
+        const { [id]: removeMetrics, ...byIds } = state.byIds;
+              return {
+                ...state,
+                allIds: allIds,
+                byIds: byIds,
+                current: null
+              }
+    };
     default:
       return state;
   }

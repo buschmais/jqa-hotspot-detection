@@ -5,13 +5,15 @@ import styled from 'styled-components';
 import Icon from "react-crud-icons";
 import "../react-crud-icons.css";
 
-const MetricsListItem = ({metrics, removeMetrics, toggleMetrics, editMetrics}) => (
+const MetricsListItem = ({metrics, removeMetrics, toggleMetrics, editMetrics}) => {
+const editDialog = ({editMetrics}) => {
+    if (window.confirm("Kennzahl bearbeiten?") === true) {
+        editMetrics(metrics.id);
+    }
+    else { }
+}
+return(
   <tr className="metrics-item">
-<script>
-  <td onClick={() => toggleMetrics(metrics.id)}>
-     {metrics && metrics.completed ? "👌" : "👋"}{" "}
-    </td>
-</script>
     <td>
           {metrics.Title}
     </td>
@@ -48,6 +50,6 @@ const MetricsListItem = ({metrics, removeMetrics, toggleMetrics, editMetrics}) =
       </button>
     </td>
   </tr>
-)
+)}
 
 export default connect(null, { removeMetrics, editMetrics })(MetricsListItem);
