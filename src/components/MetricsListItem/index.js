@@ -6,12 +6,12 @@ import Icon from "react-crud-icons";
 import "../react-crud-icons.css";
 
 const MetricsListItem = ({metrics, removeMetrics, toggleMetrics, editMetrics}) => {
-const editDialog = ({editMetrics}) => {
-    if (window.confirm("Kennzahl bearbeiten?") === true) {
-        editMetrics(metrics.id);
+const removeDialog = ({removeMetrics}) => {
+    if (window.confirm("Kennzahl löschen?") === true) {
+        removeMetrics(metrics.id);
     }
     else { }
-}
+};
 return(
   <tr className="metrics-item">
     <td>
